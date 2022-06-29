@@ -1,0 +1,21 @@
+html {
+	scroll-behavior: smooth;
+}
+
+.big-grad {
+	background: linear-gradient(314deg, #FF0080, #FF8C00, #40E0D0);
+	animation: diagonal-scroll 30s ease infinite;
+}
+
+.small-cap {
+	font-variant: small-caps;
+}
+
+.customlink:hover {
+	text-decoration: underline;
+	color: #357EDD;
+}
+
+.middle {
+	margin: auto;
+}

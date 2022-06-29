@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MultiPIT leaderboard</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/papaparse.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="css/index.css"> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  </head>
+  <body class="sans-serif">
+    <header class="mt0 pa5 w-100 dt tc big-grad">
+      <div class="dtc v-mid">
+        <h1 class="f-headline-l fw4 mb2 mt3">MultiPIT</h1>
+        <h2 class="f2 fw3 mt0">Multi-Topic Paraphrases in Twitter</h2>
+      </div>
+    </header>
+    <section id="quick-info" class="bg-near-white pt4">
+      <div class="center pl5 pr4 lh-copy">
+          <div class="cf w-80 middle">
+              <div class="fl w-10 dib-ns pr0-ns">
+                &nbsp;
+              </div>
+              <div class="fl w-40 dib-ns pr4-m pr5-l mb4 pr2 pr0-ns ml0-ns">
+                  <p class="f5 f4-l fw6 tracked mt2">ABOUT</p>
+                  <span class="f7 f6-ns db black-70">
+                      MultiPIT is a corpus of paraphrases from Twitter for paraphrase identification. It contains two parts: <span class="small-cap b">MultiPIT<sub>crowd</sub></span> and <span class="small-cap b">MultiPIT<sub>expert</sub></span>.
+                      <span class="small-cap b">MultiPIT<sub>crowd</sub></span> is a collection of crowdsourcing annoations with loosely defined paraphrase definitions.
+                      <span class="small-cap b">MultiPIT<sub>expert</sub></span> is a collection of expert annotations with strict defined paraphrase definitions.
+                  </span>
+                  <span class="f7 f6-ns db black-70 mt1">
+                    <span class="small-cap b">MultiPIT-Auto</span> is a collection of automatically identified paraphrases pairs from recent Twitter data.
+                </span>
+                  <span class="f7 f6-ns db black-70 mt1">
+                      The work is by natural language processing (NLP) researchers from the
+                      <a class="black-90 link customlink" href="https://www.ic.gatech.edu/" target="_blank">
+                        Georgia Institute of Technology
+                      </a>
+                  </span>
+              </div>
+
+              <div class="fl w-25 dib-ns pr4-m pr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+                  <p class="f5 f4-l fw6 tracked mt2">PAPER</p>
+                  <span class="f7 f6-ns db black-70">Improving Large-scale Paraphrase Acquisition and Generation</span>
+                  <span class="f7 f6-ns db black-70 i">EMNLP 2022</span>
+                  <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps" href="">
+                      read on arxiv
+                  </a>
+              </div>
+
+              <div class="fl w-25 dib-ns mb4 pr2 pr0-ns ml4 ml0-ns">
+                  <p class="f5 f4-l fw6 tracked mt2">DATA</p>
+                  <span class="f7 f6-ns db black-70 small-cap b">MultiPIT<sub>crowd</sub></span>
+                  <span class="f7 f6-ns db black-70 mb1">100K+ crowdsourcing annotations</span>
+
+                  <span class="f7 f6-ns db black-70 small-cap b">MultiPIT<sub>expert</sub></span>
+                  <span class="f7 f6-ns db black-70 mb1">5K+ expert annotations</span>
+
+                  <span class="f7 f6-ns db black-70 small-cap b">MultiPIT-Auto</span>
+                  <span class="f7 f6-ns db black-70 mb1">500K+ automatic annotations</span>
+                  <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps" href="">
+                      download
+                  </a>
+              </div>
+
+              <!-- <div class="fl w5 w-auto-l dib-ns mr4-m mr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+                  <p class="f5 f4-l fw6 tracked mt2">CODE</p>
+                  <span class="f7 f6-ns db black-70">Accompanies the paper</span>
+                  <span class="f7 f6-ns db black-70">Training, inference, analysis</span>
+                  <span class="f7 f6-ns db black-70 i">Python</span>
+                  <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps" href="https://github.com/mbforbes/social-chemistry-101">
+                      view on github
+                  </a>
+              </div> -->
+          </div>
+      </div>
+    </section>
+    <section id="leaderboard" class="cf ph5 mh7">
+      <div class="row">
+        <h2 class="f2 fw3 mt2">Leaderboard</h2>
+      </div>
+      <div class="row">
+        
+      </div>
+    </section>
+  </body>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>
