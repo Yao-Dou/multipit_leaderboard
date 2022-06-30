@@ -1,0 +1,11 @@
+Model,URL,Date,Accuracy,Precision,Recall,F1
+DeBERTaV3-large,https://arxiv.org/abs/2111.09543,6/30/2022,86.54,86.05,85.06,85.55
+T5-large,https://arxiv.org/abs/1910.10683,6/30/2022,85.64,83.82,86.36,85.07
+ALBERTV2-xxlarge,https://arxiv.org/abs/1909.11942,6/30/2022,85.82,86.22,83.27,84.72
+BERTweet-large,https://arxiv.org/abs/2005.10200,6/30/2022,85.46,86.45,82.2,84.27
+RoBERTa-large,https://arxiv.org/abs/1907.11692,6/30/2022,82.94,81.02,83.77,82.37
+BERT-large,https://arxiv.org/abs/1810.04805,6/30/2022,81.15,76.14,87.92,81.61
+BERT-base,https://arxiv.org/abs/1810.04805,6/30/2022,80.97,76.22,87.64,81.53
+T5-base,https://arxiv.org/abs/1910.10683,6/30/2022,79.53,75.34,84.47,79.64
+Infersent,https://research.facebook.com/file/4264548800308224/emnlp2017.pdf,6/30/2022,48.83,48.44,98.51,64.94
+ESIM,https://arxiv.org/abs/1609.06038v3,6/30/2022,51.71,49.9,92.16,64.74

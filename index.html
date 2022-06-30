@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link rel="stylesheet" href="css/index.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="css/index.css"> 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   </head>
   <body class="sans-serif">
@@ -24,15 +25,15 @@
       </div>
     </header>
     <section id="quick-info" class="bg-near-white pt4">
-      <div class="center pl5 pr4 lh-copy">
+      <div class="center lh-copy">
           <div class="cf w-80 middle">
-              <div class="fl w-10 dib-ns pr0-ns">
+              <div class="fl w-5 dib-ns pr0-ns">
                 &nbsp;
               </div>
-              <div class="fl w-40 dib-ns pr4-m pr5-l mb4 pr2 pr0-ns ml0-ns">
+              <div class="fl w-58 dib-ns pr4-m pr5-l mb4 pr2 pr0-ns ml0-ns">
                   <p class="f5 f4-l fw6 tracked mt2">ABOUT</p>
                   <span class="f7 f6-ns db black-70">
-                      MultiPIT is a corpus of paraphrases from Twitter for paraphrase identification. It contains two parts: <span class="small-cap b">MultiPIT<sub>crowd</sub></span> and <span class="small-cap b">MultiPIT<sub>expert</sub></span>.
+                      MultiPIT is the largest corpus of paraphrases from Twitter for paraphrase identification. It contains two parts: <span class="small-cap b">MultiPIT<sub>crowd</sub></span> and <span class="small-cap b">MultiPIT<sub>expert</sub></span>.
                       <span class="small-cap b">MultiPIT<sub>crowd</sub></span> is a collection of crowdsourcing annoations with loosely defined paraphrase definitions.
                       <span class="small-cap b">MultiPIT<sub>expert</sub></span> is a collection of expert annotations with strict defined paraphrase definitions.
                   </span>
@@ -47,16 +48,16 @@
                   </span>
               </div>
 
-              <div class="fl w-25 dib-ns pr4-m pr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+              <div class="fl w-20 dib-ns pr4-m pr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
                   <p class="f5 f4-l fw6 tracked mt2">PAPER</p>
                   <span class="f7 f6-ns db black-70">Improving Large-scale Paraphrase Acquisition and Generation</span>
                   <span class="f7 f6-ns db black-70 i">EMNLP 2022</span>
                   <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps" href="">
-                      read on arxiv
+                      read paper
                   </a>
               </div>
 
-              <div class="fl w-25 dib-ns mb4 pr2 pr0-ns ml4 ml0-ns">
+              <div class="fl w-20 dib-ns mb4 pr2 pr0-ns ml4 ml0-ns">
                   <p class="f5 f4-l fw6 tracked mt2">DATA</p>
                   <span class="f7 f6-ns db black-70 small-cap b">MultiPIT<sub>crowd</sub></span>
                   <span class="f7 f6-ns db black-70 mb1">100K+ crowdsourcing annotations</span>
@@ -83,14 +84,43 @@
           </div>
       </div>
     </section>
-    <section id="leaderboard" class="cf ph5 mh7">
-      <div class="row">
-        <h2 class="f2 fw3 mt2">Leaderboard</h2>
+    <section id="leaderboard" class="cf w-80 middle">
+      <div>
+        <div class="f2 fw4 mv4">Leaderboard</div>
       </div>
-      <div class="row">
-        <table id="crowd_leaderboard" class="display nowrap" style="width:100%">
-          <thead>
-              <tr>
+      <div class="ba b--black-20 br3 mb5">
+        <div class="cf bb b--black-20 ph3 bg-near-white br-top height-50px">
+          <a class="fl f5 fw5 black-80 mr4 pointer selected_leaderboard leaderboard-type">Loose Identification</a>
+          <a class="fl f5 fw5 black-80 mr4 pointer leaderboard-type">Strict Identification</a>
+          <a class="fl f5 fw5 black-80 mr4 pointer leaderboard-type">Generation</a>
+          <a class="fl f5 fw5 black-80 pointer leaderboard-type">Generation Metrics</a>
+
+          <a class="fr f5 fw3 line-height-50 blue submit-tip pointer">Learn how to submit your own model or metric ›</a>
+        </div>
+        <div class="cf">
+          <div class="relative mt3 mh3">
+            <i emphasis="low" sizevalue="23px" class="material-icons absolute icon">search</i>
+            <input id="search-box" placeholder="Search leaderboard" aria-controls="crowd_leaderboard" aria-label="Search leaderboard" class="search-height search-padding cf border-box w-100 ba b--light-gray br5" value="">
+          </div>
+        </div>
+        <div class="ph3">
+          <table id="crowd_leaderboard" class="display nowrap">
+            <thead>
+                <tr>
+                    <th>model</th>
+                    <th>F1</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>Accuracy</th>
+                    <th>F11</th>
+                    <th>Precision1</th>
+                    <th>Recall1</th>
+                    <th>Accuracy1</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                  <th>model</th>
                   <th>F1</th>
                   <th>Precision</th>
                   <th>Recall</th>
@@ -99,30 +129,12 @@
                   <th>Precision1</th>
                   <th>Recall1</th>
                   <th>Accuracy1</th>
-                  <th>F12</th>
-                  <th>Precision2</th>
-                  <th>Recall2</th>
-                  <th>Accuracy2</th>
-              </tr>
-          </thead>
-          <tfoot>
-              <tr>
-                <th>F1</th>
-                <th>Precision</th>
-                <th>Recall</th>
-                <th>Accuracy</th>
-                <th>F11</th>
-                <th>Precision1</th>
-                <th>Recall1</th>
-                <th>Accuracy1</th>
-                <th>F12</th>
-                <th>Precision2</th>
-                <th>Recall2</th>
-                <th>Accuracy2</th>
-              </tr>
-          </tfoot>
-      </table>
+                </tr>
+            </tfoot>
+        </table>
+        </div>
       </div>
+
     </section>
   </body>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
