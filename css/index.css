@@ -85,3 +85,11 @@ html {
 .submit-tip:hover {
 	text-decoration: underline;
 }
+
+.leaderboard_div {
+	display: none;
+}
+
+.active {
+	display: block;
+}

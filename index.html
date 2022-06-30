@@ -84,7 +84,7 @@
           </div>
       </div>
     </section>
-    <section id="leaderboard" class="cf w-80 middle">
+    <section class="cf w-80 middle">
       <div>
         <div class="f2 fw4 mv4">Leaderboard</div>
       </div>
@@ -98,40 +98,117 @@
           <a class="fr f5 fw3 line-height-50 blue submit-tip pointer">Learn how to submit your own model or metric ›</a>
         </div>
         <div class="cf">
-          <div class="relative mt3 mh3">
+          <div class="relative mt3 mh3 mb2">
             <i emphasis="low" sizevalue="23px" class="material-icons absolute icon">search</i>
             <input id="search-box" placeholder="Search leaderboard" aria-controls="crowd_leaderboard" aria-label="Search leaderboard" class="search-height search-padding cf border-box w-100 ba b--light-gray br5" value="">
           </div>
         </div>
-        <div class="ph3">
-          <table id="crowd_leaderboard" class="display nowrap">
+        <div class="ph3 leaderboard_div active">
+          <table id="loose_iden_leaderboard" class="display nowrap">
             <thead>
                 <tr>
-                    <th>model</th>
-                    <th>F1</th>
+                    <th>Rank</th>
+                    <th>Model</th>
+                    <th>Date</th>
                     <th>Precision</th>
                     <th>Recall</th>
                     <th>Accuracy</th>
-                    <th>F11</th>
-                    <th>Precision1</th>
-                    <th>Recall1</th>
-                    <th>Accuracy1</th>
+                    <th>F1</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                  <th>model</th>
-                  <th>F1</th>
+                    <th>Rank</th>
+                    <th>Model</th>
+                    <th>Date</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>Accuracy</th>
+                    <th>F1</th>
+                </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="ph3 leaderboard_div">
+          <table id="strict_iden_leaderboard" class="display nowrap">
+            <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Model</th>
+                  <th>Date</th>
                   <th>Precision</th>
                   <th>Recall</th>
                   <th>Accuracy</th>
-                  <th>F11</th>
-                  <th>Precision1</th>
-                  <th>Recall1</th>
-                  <th>Accuracy1</th>
+                  <th>F1</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                  <th>Rank</th>
+                  <th>Model</th>
+                  <th>Date</th>
+                  <th>Precision</th>
+                  <th>Recall</th>
+                  <th>Accuracy</th>
+                  <th>F1</th>
                 </tr>
             </tfoot>
-        </table>
+          </table>
+        </div>
+
+        <div class="ph3 leaderboard_div">
+          <table id="gen_leaderboard" class="display nowrap">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Model</th>
+                    <th>Date</th>
+                    <th>BERT-iBLEU</th>
+                    <th>Self-BLEU</th>
+                    <th>BERT-Score</th>
+                    <th>BLEU</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                  <th>Rank</th>
+                  <th>Model</th>
+                  <th>Date</th>
+                  <th>BERT-iBLEU</th>
+                  <th>Self-BLEU</th>
+                  <th>BERT-Score</th>
+                  <th>BLEU</th>
+                </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="ph3 leaderboard_div">
+          <table id="gen_metrics" class="display nowrap">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Metric</th>
+                    <th>Referenceless</th>
+                    <th>Fluency Correlation</th>
+                    <th>Semantic Similarity Correlation</th>
+                    <th>Diversity Correlation</th>
+                    <th>Overall Correlation</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                  <th>Rank</th>
+                  <th>Metric</th>
+                  <th>Referenceless</th>
+                  <th>Fluency Correlation</th>
+                  <th>Semantic Similarity Correlation</th>
+                  <th>Diversity Correlation</th>
+                  <th>Overall Correlation</th>
+                </tr>
+            </tfoot>
+          </table>
         </div>
       </div>
 
