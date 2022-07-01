@@ -93,3 +93,9 @@ html {
 .active {
 	display: block;
 }
+
+tr { height: 55px}
+
+.leaderboard-font {
+	font-size: 2rem;
+}

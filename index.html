@@ -8,6 +8,7 @@
     crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/papaparse.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -86,14 +87,14 @@
     </section>
     <section class="cf w-80 middle">
       <div>
-        <div class="f2 fw4 mv4">Leaderboard</div>
+        <div class="leaderboard-font fw4 mv4">Leaderboard</div>
       </div>
       <div class="ba b--black-20 br3 mb5">
         <div class="cf bb b--black-20 ph3 bg-near-white br-top height-50px">
-          <a class="fl f5 fw5 black-80 mr4 pointer selected_leaderboard leaderboard-type">Loose Identification</a>
-          <a class="fl f5 fw5 black-80 mr4 pointer leaderboard-type">Strict Identification</a>
-          <a class="fl f5 fw5 black-80 mr4 pointer leaderboard-type">Generation</a>
-          <a class="fl f5 fw5 black-80 pointer leaderboard-type">Generation Metrics</a>
+          <a class="fl f5 fw5 black-40 mr4 pointer selected_leaderboard leaderboard-type" data-leaderboard-id="loose_iden_leaderboard">Loose Identification</a>
+          <a class="fl f5 fw5 black-40 mr4 pointer leaderboard-type" data-leaderboard-id="strict_iden_leaderboard">Strict Identification</a>
+          <a class="fl f5 fw5 black-40 mr4 pointer leaderboard-type" data-leaderboard-id="gen_leaderboard">Generation</a>
+          <a class="fl f5 fw5 black-40 pointer leaderboard-type" data-leaderboard-id="gen_metrics">Generation Metrics</a>
 
           <a class="fr f5 fw3 line-height-50 blue submit-tip pointer">Learn how to submit your own model or metric ›</a>
         </div>
@@ -103,9 +104,20 @@
             <input id="search-box" placeholder="Search leaderboard" aria-controls="crowd_leaderboard" aria-label="Search leaderboard" class="search-height search-padding cf border-box w-100 ba b--light-gray br5" value="">
           </div>
         </div>
-        <div class="ph3 leaderboard_div active">
-          <table id="loose_iden_leaderboard" class="display nowrap">
+        <div id="loose_iden_leaderboard_div" class="ph3 mb4 leaderboard_div active">
+          <table id="loose_iden_leaderboard" class="nowrap hover">
             <thead>
+                <tr>
+                    <th class="black-70">Rank</th>
+                    <th class="black-70">Model</th>
+                    <th class="black-70">Date</th>
+                    <th class="black-70">Precision</th>
+                    <th class="black-70">Recall</th>
+                    <th class="black-70">Accuracy</th>
+                    <th class="black-70">F1</th>
+                </tr>
+            </thead>
+            <!-- <tfoot>
                 <tr>
                     <th>Rank</th>
                     <th>Model</th>
@@ -115,24 +127,24 @@
                     <th>Accuracy</th>
                     <th>F1</th>
                 </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th>Date</th>
-                    <th>Precision</th>
-                    <th>Recall</th>
-                    <th>Accuracy</th>
-                    <th>F1</th>
-                </tr>
-            </tfoot>
+            </tfoot> -->
           </table>
         </div>
 
-        <div class="ph3 leaderboard_div">
-          <table id="strict_iden_leaderboard" class="display nowrap">
+        <div id="strict_iden_leaderboard_div" class="ph3 mb4 leaderboard_div">
+          <table id="strict_iden_leaderboard" class="nowrap">
             <thead>
+                <tr>
+                  <th class="black-70">Rank</th>
+                  <th class="black-70">Model</th>
+                  <th class="black-70">Date</th>
+                  <th class="black-70">Precision</th>
+                  <th class="black-70">Recall</th>
+                  <th class="black-70">Accuracy</th>
+                  <th class="black-70">F1</th>
+                </tr>
+            </thead>
+            <!-- <tfoot>
                 <tr>
                   <th>Rank</th>
                   <th>Model</th>
@@ -142,35 +154,24 @@
                   <th>Accuracy</th>
                   <th>F1</th>
                 </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                  <th>Rank</th>
-                  <th>Model</th>
-                  <th>Date</th>
-                  <th>Precision</th>
-                  <th>Recall</th>
-                  <th>Accuracy</th>
-                  <th>F1</th>
-                </tr>
-            </tfoot>
+            </tfoot> -->
           </table>
         </div>
 
-        <div class="ph3 leaderboard_div">
-          <table id="gen_leaderboard" class="display nowrap">
+        <div id="gen_leaderboard_div" class="ph3 mb4 leaderboard_div">
+          <table id="gen_leaderboard" class="nowrap">
             <thead>
                 <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th>Date</th>
-                    <th>BERT-iBLEU</th>
-                    <th>Self-BLEU</th>
-                    <th>BERT-Score</th>
-                    <th>BLEU</th>
+                    <th class="black-70">Rank</th>
+                    <th class="black-70">Model</th>
+                    <th class="black-70">Date</th>
+                    <th class="black-70">BERT-iBLEU</th>
+                    <th class="black-70">Self-BLEU</th>
+                    <th class="black-70">BERT-Score</th>
+                    <th class="black-70">BLEU</th>
                 </tr>
             </thead>
-            <tfoot>
+            <!-- <tfoot>
                 <tr>
                   <th>Rank</th>
                   <th>Model</th>
@@ -180,24 +181,24 @@
                   <th>BERT-Score</th>
                   <th>BLEU</th>
                 </tr>
-            </tfoot>
+            </tfoot> -->
           </table>
         </div>
 
-        <div class="ph3 leaderboard_div">
-          <table id="gen_metrics" class="display nowrap">
+        <div id="gen_metrics_div" class="ph3 mb4 leaderboard_div">
+          <table id="gen_metrics" class="nowrap">
             <thead>
                 <tr>
-                    <th>Rank</th>
-                    <th>Metric</th>
-                    <th>Referenceless</th>
-                    <th>Fluency Correlation</th>
-                    <th>Semantic Similarity Correlation</th>
-                    <th>Diversity Correlation</th>
-                    <th>Overall Correlation</th>
+                    <th class="black-70">Rank</th>
+                    <th class="black-70">Metric</th>
+                    <th class="black-70">Referenceless</th>
+                    <th class="black-70">Fluency Correlation</th>
+                    <th class="black-70">Semantic Similarity Correlation</th>
+                    <th class="black-70">Diversity Correlation</th>
+                    <th class="black-70">Overall Correlation</th>
                 </tr>
             </thead>
-            <tfoot>
+            <!-- <tfoot>
                 <tr>
                   <th>Rank</th>
                   <th>Metric</th>
@@ -207,13 +208,12 @@
                   <th>Diversity Correlation</th>
                   <th>Overall Correlation</th>
                 </tr>
-            </tfoot>
+            </tfoot> -->
           </table>
         </div>
       </div>
 
     </section>
   </body>
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </html>
