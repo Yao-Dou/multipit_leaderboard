@@ -47,6 +47,9 @@ $(document).ready(function() {
             },
             {
                 data: 'Model',
+                render: function(data, type, row, meta) {
+                    return '<a href="' + row.URL + '" target="_blank" class="link dim black">' + data + '</a>';
+                },
                 orderable: false
             },
             {
@@ -80,7 +83,7 @@ $(document).ready(function() {
         searching: true,
         info: false,
         dom: 't',
-        order: [[6, 'dsc']],
+        order: [[6, 'desc']],
     });
 
     $('#strict_iden_leaderboard').DataTable({
@@ -106,6 +109,9 @@ $(document).ready(function() {
             },
             {
                 data: 'Model',
+                render: function(data, type, row, meta) {
+                    return '<a href="' + row.URL + '" target="_blank" class="link dim black">' + data + '</a>';
+                },
                 orderable: false
             },
             {
@@ -139,7 +145,7 @@ $(document).ready(function() {
         searching: true,
         info: false,
         dom: 't',
-        order: [[6, 'dsc']]
+        order: [[6, 'desc']]
     });
 
     $('#gen_leaderboard').DataTable({
@@ -165,6 +171,9 @@ $(document).ready(function() {
             },
             {
                 data: 'Model',
+                render: function(data, type, row, meta) {
+                    return '<a href="' + row.URL + '" target="_blank" class="link dim black">' + data + '</a>';
+                },
                 orderable: false
             },
             {
@@ -198,7 +207,7 @@ $(document).ready(function() {
         searching: true,
         info: false,
         dom: 't',
-        order: [[3, 'dsc']]
+        order: [[3, 'desc']]
     });
 
     $('#gen_metrics').DataTable({
@@ -224,6 +233,13 @@ $(document).ready(function() {
             },
             {
                 data: 'Metric',
+                render: function(data, type, row, meta) {
+                    // if data = " ", then don't add link
+                    if (row.URL == " ") {
+                        return data;
+                    }
+                    return '<a href="' + row.URL + '" target="_blank" class="link dim black">' + data + '</a>';
+                },
                 orderable: false
             },
             {
@@ -257,7 +273,7 @@ $(document).ready(function() {
         searching: true,
         info: false,
         dom: 't',
-        order: [[5, 'dsc']]
+        order: [[6, 'desc']]
     });
 
     table.on( 'order.dt search.dt', function () {

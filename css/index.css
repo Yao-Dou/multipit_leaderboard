@@ -66,20 +66,29 @@ html {
 	line-height: 50px;
 }
 
+.line-height-70 {
+	height: 70px;
+	line-height: 70px;
+}
+
 .leaderboard-type:hover {
 	/* text-decoration: underline; */
-	color: #357EDD;
+	color: #FB8E0B;
 	/* bottom border */
-	border-bottom: 3px solid #357EDD;
+	border-bottom: 3px solid #FB8E0B;
 }
 
 .selected_leaderboard {
-	color: #357EDD;
-	border-bottom: 3px solid #357EDD;
+	color: #FB8E0B;
+	border-bottom: 3px solid #FB8E0B;
 }
 
 .height-50px {
 	height: 50px;
+}
+
+.height-70px {
+	height: 70px;
 }
 
 .submit-tip:hover {
@@ -98,4 +107,8 @@ tr { height: 55px}
 
 .leaderboard-font {
 	font-size: 2rem;
+}
+
+.bg-near-super-white {
+	background: #f9f9f9;
 }
