@@ -112,3 +112,7 @@ tr { height: 55px}
 .bg-near-super-white {
 	background: #f9f9f9;
 }
+
+.f2-small {
+	font-size: 1.9rem;
+}

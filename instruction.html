@@ -28,23 +28,60 @@
     <section id="quick-info" class="pt4">
       <div class="center lh-copy">
           <div class="cf w-80 middle">
-              <div class="dib-ns pr4-m pr5-l mb4 pr2 pr0-ns ml0-ns">
-                  <div class="cf mb3">
-                    <span class="fl f2 fw5 line-height-70 ">Submission Guide</span>
+              <div class="pr4-m pr5-l mb4 pr2 pr0-ns ml0-ns">
+                  <div class="cf mb0">
+                    <span class="fl f2 fw5 line-height-70">Submission Guide</span>
                     <a class="fr f4 fw3 blue submit-tip pointer link line-height-70" href="index.html">&lt; Go back to the leaderboard</a>
                   </div>
                   <span class="f3 db">
-                    To prevent test data leakage, you need to submit your model or metric, and we will run the test for you.
+                    To prevent test data leakage, you need to submit your model or metric through google forms, and we will run the test results for you.
                   </span>
-                  <span class="f3 db mt3">
-                    1. Upload your model and a generation script named as <code>run_generation.py</code>.
-                    <span class="f4 db">
-                      If your model is on Huggingface, you don't need to upload the model, just use it directly in the script.
-                    </span>
+                  <span class="db f2-small fw5 i">
+                    <span class="red">Model</span> Submission: <a href="https://forms.gle/pAuB4m4C3xMc7NuY7" class="f3 fw4 link dim" target="_blank">Google Form</a>
                   </span>
-                  <span class="f3 db mt3">
-                    2. The <code>run_generation.py</code> script should accept two arguments: <code>model_path</code> and <code>data_path</code>.
+                  <span class="db f3 mt2">
+                    Steps 🪜
                   </span>
+                  <ol class="mt2">
+                    <li class="f3 fw4">
+                      Get the data for the task (identification or generation) that you want to work on from the home page. 
+                      <b>For identification</b>, you need to work on both loose and strict identification tasks.
+                    </li>
+                    <li class="f3 fw4 mt2">
+                      <b>For identification:</b>
+                      The test data has two columns named <code>sentence1</code> and <code>sentence2</code>.
+                      Your model should output whether sentence2 is a paraphrase of sentence1 as 1 (paraphrase) or 0 (not).
+                      Save your predictions in a csv file named <code>{loose/strict}_predictions.csv</code> with the  "sentence1", "sentence2" and "prediction" columns.
+                      <br>
+                      <b>For generation:</b>
+                      The test data has one columns named <code>sentence1</code>.
+                      Your model should generate a paraphrase for the sentence1.
+                      Save your generations in a csv file named <code>generations.csv</code> with the "sentence1" and "generation" columns.
+                    </li>
+                    <li class="f3 fw4 mt2">
+                      Create a zip of your prediction/generation csv files, and name it as <code>submission.zip</code>.
+                    </li>
+                    <li class="f3 fw4 mt2">
+                      Upload this zip and fill out some additional information in the Google Form.
+                    </li>
+                  </ol>
+                  <span class="db f2-small fw5 i">
+                    <span class="blue">Metric</span> Submission: <a href="https://forms.gle/pe7gf2bHeAeJp2hg6" class="f3 fw4 link dim" target="_blank">Google Form</a>
+                  </span>
+                  <span class="db f3 mt2">
+                    Steps 🪜
+                  </span>
+                  <ol class="mt2">
+                    <li class="f3 fw4 mt2">
+                      You should write a script named <code>run_metric.py</code> that takes the following arguments <code>data_path</code> and <code>output_path</code>.
+                      <code>data_path</code> is a csv file containing three columns named <code>sentence1</code>, <code>references</code>, and <code>generation</code>.
+                      <code>references</code> is a list of paraphrases for the sentence1.
+                      Your script should calcualte your metric score for each generation and save the scores in a csv file named <code>output_path</code> with <code>sentence1</code>, <code>references</code>, <code>generation</code> and <code>score</code> columns.
+                    </li>
+                    <li class="f3 fw4 mt2">
+                      Upload your <code>run_metric.py</code> and fill out some additional information in the Google Form.
+                    </li>
+                  </ol>
               </div>
           </div>
       </div>
